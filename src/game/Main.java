@@ -11,14 +11,12 @@
  *************************************************************************************************************************/
 
 package game;
-
-import com.sun.javafx.application.LauncherImpl;
 	
-import gameMenu.MainMenu;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
+import main.Menu;
 
-@SuppressWarnings("restriction")
 public class Main extends Application {
 	
 	public void init() throws Exception{
@@ -26,12 +24,18 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		LauncherImpl.launchApplication(Main.class, SplashScreen.class,args);
+		launch(args);
 	}
 	
 	public void start(Stage stage) {
-		MainMenu menuStage = new MainMenu();
-		menuStage.setStage(stage);
+//		MainMenu menuStage = new MainMenu();
+//		menuStage.setStage(stage);
+//		GameStage theGameStage = new GameStage();
+//		theGameStage.setStage(stage);
+		//stage.show();
+		Menu mainMenu = new Menu();
+		mainMenu.loadTo(stage);
+		stage.show();
 	}
 	
 }
