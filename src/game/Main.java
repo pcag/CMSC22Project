@@ -12,7 +12,7 @@
 
 package game;
 	
-
+import com.sun.javafx.application.LauncherImpl;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import main.Menu;
@@ -24,15 +24,10 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		LauncherImpl.launchApplication(Main.class, SplashScreen.class,args);
 	}
 	
 	public void start(Stage stage) {
-//		MainMenu menuStage = new MainMenu();
-//		menuStage.setStage(stage);
-//		GameStage theGameStage = new GameStage();
-//		theGameStage.setStage(stage);
-		//stage.show();
 		Menu mainMenu = new Menu();
 		mainMenu.loadTo(stage);
 		stage.show();
