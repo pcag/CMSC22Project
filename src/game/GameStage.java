@@ -1,7 +1,5 @@
 package game;
 
-
-
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,11 +7,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import main.Menu;
 
 public class GameStage {
     public static final int WINDOW_HEIGHT = 500;
@@ -41,18 +37,6 @@ public class GameStage {
 
         // Set stage elements here
         this.root.getChildren().add(canvas);
-
-        // Create a back button
-        Button backButton = new Button("BACK");
-        backButton.setFocusTraversable(false);
-        backButton.setOnMouseReleased(event -> {
-            Menu mainMenu = new Menu();
-            mainMenu.loadTo(stage);
-        });
-       
-
-        // Add the back button to the root group
-        this.root.getChildren().add(backButton);
 
         this.stage.setTitle("Mini Ship Shooting Game");
         this.stage.setScene(this.scene);
