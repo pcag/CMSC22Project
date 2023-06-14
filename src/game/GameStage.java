@@ -1,5 +1,7 @@
 package game;
 
+
+
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,20 +44,20 @@ public class GameStage {
 
         // Create a back button
         Button backButton = new Button("BACK");
-        backButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // Handle the back button click event here
-                Menu mainMenu = new Menu();
-                mainMenu.loadTo(stage);
-            }
+        backButton.setFocusTraversable(false);
+        backButton.setOnMouseReleased(event -> {
+            Menu mainMenu = new Menu();
+            mainMenu.loadTo(stage);
         });
+       
 
         // Add the back button to the root group
         this.root.getChildren().add(backButton);
 
         this.stage.setTitle("Mini Ship Shooting Game");
         this.stage.setScene(this.scene);
+        
+        
 
         // invoke the start method of the animation timer
         this.gametimer.start();
