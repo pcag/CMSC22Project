@@ -24,12 +24,8 @@ public class Result {
 	private GameTimer gameTimer;
 	private int gameOverNum;
 
-	public final  Media mp3MusicFile = new Media(getClass().getResource("/resources/music/win.mp3").toExternalForm());
-	public final MediaPlayer musicplayer = new MediaPlayer(mp3MusicFile);
-	public final  Media mp3MusicFile1 = new Media(getClass().getResource("/resources/music/lose.mp3").toExternalForm());
-	public final MediaPlayer musicplayer1 = new MediaPlayer(mp3MusicFile1);
-	public static final Image img1= new Image("/resources/pages/losePage.png");
-	public static final Image img2= new Image("/resources/pages/winPage.png");
+	public static final Image img2= new Image("/images/Exams Aced.jpg");
+	public static final Image img1= new Image("/images/Exams Failed.jpg");
 
 	Result(int gameOverNum, GameTimer gameTimer){
 		this.pane = new StackPane();
@@ -47,29 +43,12 @@ public class Result {
 		this.gc.setFill(Color.SNOW);
 
 		if (this.gameOverNum == 0){
-			//for audio
-			this.musicplayer1.setAutoPlay(true);
-			this.musicplayer1.setVolume(0.9);
-			musicplayer1.setOnEndOfMedia(new Runnable() {
-			    public void run() {
-			    musicplayer1.seek(Duration.ZERO);
-			   }
-			     });
 
 			// display
 			this.gc.drawImage(img1, 0, 0, GameStage.WINDOW_WIDTH,GameStage.WINDOW_HEIGHT); // losePage
 			this.gc.fillText("Score: " + gameTimer.getScore(), GameStage.WINDOW_WIDTH*.01,GameStage.WINDOW_HEIGHT*0.05);
 		}
 		else if (this.gameOverNum == 1){
-			this.musicplayer.setAutoPlay(true); //for audio
-			this.musicplayer.setVolume(0.9);
-
-			//loops the music all throughout the game
-			    musicplayer.setOnEndOfMedia(new Runnable() {
-			    public void run() {
-			    musicplayer.seek(Duration.ZERO);
-			   }
-			     });
 			this.gc.drawImage(img2, 0, 0, GameStage.WINDOW_WIDTH,GameStage.WINDOW_HEIGHT); // winPage
 			this.gc.fillText("Score: " + gameTimer.getScore(), GameStage.WINDOW_WIDTH*.01,GameStage.WINDOW_HEIGHT*0.05);
 		}
