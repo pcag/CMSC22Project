@@ -54,19 +54,14 @@ public class Student extends Sprite {
 
 	// method called if spacebar is pressed
 	public void shoot(boolean pU) {
-		if (this.pencils.size() < PENCIL_MAX_PU && pU) {
-			// compute for the x and y initial position of the bullet
-			int x = (int) (this.x + this.width + 20);
-			int y = (int) (this.y + this.height / 2);
-			Pencil p = new Pencil(x, y);
-			this.pencils.add(p);
-		} else if (this.pencils.size() < PENCIL_MAX && !pU) {
-			/* TODO: Instantiate a new bullet and add it to the bullets arraylist of ship */
-			int x = (int) (this.x + this.width + 20);
-			int y = (int) (this.y + this.height / 2);
-			Pencil p = new Pencil(x, y);
-			this.pencils.add(p);
-		}
+		// compute for the x and y initial position of the bullet
+		int x = (int) (this.x + this.width + 20);
+		int y = (int) (this.y + this.height / 2);
+		/* TODO: Instantiate a new bullet and add it to the bullets arraylist of ship */
+
+		Pencil p = new Pencil(x, y);
+		this.pencils.add(p);
+		p.moveRight(pU);
 	}
 
 	// method called if up/down/left/right arrow key is pressed.
