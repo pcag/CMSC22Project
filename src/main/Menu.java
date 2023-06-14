@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -19,9 +20,6 @@ import game.GameStage;
 
 public class Menu extends View{
 	private Image img = new Image("/images/Title.jpg");
-	
-	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 500;
 	
 	@Override
 	protected Parent createRoot() {
@@ -38,8 +36,9 @@ public class Menu extends View{
 		HBox content = createContent();
 
 //		root.getChildren().addAll(imgView, content);
+		HBox.setMargin(content, null);
+		HBox.setHgrow(content, Priority.ALWAYS);
 		root.getChildren().addAll(content);
-
 		return root;
 	}
 
@@ -61,42 +60,58 @@ public class Menu extends View{
 		buttonContents.setSpacing(8);
 
 
-		Button newGameBtn = createButton("NEW GAME");
-		newGameBtn.setPrefHeight(20);
-		newGameBtn.setPrefWidth(50);
-		newGameBtn.setTranslateX(50);
+		Button newGameBtn = new Button("NEW GAME");
+		newGameBtn.setPrefHeight(50);
+		newGameBtn.setPrefWidth(130);
+		newGameBtn.setTranslateX(-80);
 		newGameBtn.setTranslateY(100);
+		newGameBtn.setStyle("-fx-background-color: #FFE4C4;" +
+				 "-fx-font-size: 15;" +
+				 "-fx-border-color: #800000;" +
+				 "-fx-border-width: 3px;");
 		newGameBtn.setOnMouseClicked(event -> {
 			GameStage theGameStage = new GameStage();
 			theGameStage.setStage(stage);
 		});
 
 
-		Button instructionsBtn = createButton("INSTRUCTIONS");
-		instructionsBtn.setPrefHeight(10);
-		instructionsBtn.setPrefWidth(20);
-		instructionsBtn.setTranslateX(150);
+		Button instructionsBtn = new Button("INSTRUCTIONS");
+		instructionsBtn.setPrefHeight(50);
+		instructionsBtn.setPrefWidth(130);
+		instructionsBtn.setTranslateX(-30);
 		instructionsBtn.setTranslateY(100);
+		instructionsBtn.setStyle("-fx-background-color: #FFE4C4;" +
+				 "-fx-font-size: 15;" +
+				 "-fx-border-color: #800000;" +
+				 "-fx-border-width: 3px;");
 		instructionsBtn.setOnMouseClicked(event -> {
 			Instructions instructionsTab = new Instructions();
 			instructionsTab.loadTo(stage);
 		});
 
-		Button aboutBtn = createButton("ABOUT");
-		aboutBtn.setPrefHeight(20);
-		aboutBtn.setPrefWidth(50);
-		aboutBtn.setTranslateX(250);
+		Button aboutBtn = new Button("ABOUT");
+		aboutBtn.setPrefHeight(50);
+		aboutBtn.setPrefWidth(130);
+		aboutBtn.setTranslateX(20);
 		aboutBtn.setTranslateY(100);
+		aboutBtn.setStyle("-fx-background-color: #FFE4C4;" +
+				 "-fx-font-size: 15;" +
+				 "-fx-border-color: #800000;" +
+				 "-fx-border-width: 3px;");
 		aboutBtn.setOnMouseClicked(event -> {
 			About aboutTab = new About();
 			aboutTab.loadTo(stage);
 		});
 
-		Button exitBtn = createButton("EXIT");
-		exitBtn.setPrefHeight(20);
-		exitBtn.setPrefWidth(50);
-		exitBtn.setTranslateX(350);
+		Button exitBtn = new Button("EXIT");
+		exitBtn.setPrefHeight(50);
+		exitBtn.setPrefWidth(130);
+		exitBtn.setTranslateX(70);
 		exitBtn.setTranslateY(100);
+		exitBtn.setStyle("-fx-background-color: #FFE4C4;" +
+				 "-fx-font-size: 15;" +
+				 "-fx-border-color: #800000;" +
+				 "-fx-border-width: 3px;");
 		exitBtn.setOnMouseClicked(event -> {
 			System.exit(0);
 		});

@@ -3,6 +3,7 @@ package main;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 
 import javafx.scene.layout.BackgroundImage;
@@ -13,32 +14,30 @@ import javafx.scene.text.TextAlignment;
 
 
 public class About extends View{
+	private Image img1 = new Image("/images/About.jpg");
+	
 	@Override
 	protected Parent createRoot(){
 		VBox root = new VBox();
-//		root.setBackground(new Background(new BackgroundImage("/images/About.jpg", null, null, null, null)));
+		root.setBackground(new Background(new BackgroundImage(img1, null, null, null, null)));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(16);
 
-		Text title = createText("About", 48);
 
-		Text dev = createText("Game Developer", 28);
-
-		String info = "Clark Vince Diala\n" + " BS Tulog\n" +
-		"University of the Philippines - Los Banos";
-
-		Text myInfo =  createText(info, 24);
-		myInfo.setTextAlignment(TextAlignment.CENTER);
-
-
-		Button backBtn =  createButton("BACK");
-
+		Button backBtn =  new Button("BACK");
+		backBtn.setPrefHeight(40);
+		backBtn.setPrefWidth(100);
+		backBtn.setStyle("-fx-background-color: #FFE4C4;" +
+						 "-fx-border-color: #000000;" +
+						 "-fx-border-width: 2px;");
+		backBtn.setTranslateY(208);
+		
 		backBtn.setOnMouseClicked(event -> {
 			Menu mainMenu = new Menu();
 			mainMenu.loadTo(stage);
 		});
 
-		root.getChildren().addAll(title, dev, myInfo, backBtn);
+		root.getChildren().addAll(backBtn);
 
 		return root;
 	}
