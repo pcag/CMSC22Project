@@ -15,6 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 /*
  * The GameTimer is a subclass of the AnimationTimer class. It must override the handle method. 
@@ -97,7 +100,7 @@ public class GameTimer extends AnimationTimer{
 		this.collisionPowerups();
 		this.collisionPencils();
 		this.collisionFinalBoss();
-//		this.displayStats();
+		this.displayStat();
 	}
 	
 	//method that will render/draw the exams to the canvas
@@ -353,6 +356,21 @@ public class GameTimer extends AnimationTimer{
 					gameStage.gameOver(0, this);
 				}
 			}
+		}
+	}
+	
+	private void displayStat(){
+		Font theFont = Font.font("Helvetica",FontWeight.EXTRA_BOLD,15);//set font type, style and size
+		this.gc.setFont(theFont);
+		this.gc.setFill(Color.SNOW);
+//		this.gc.drawImage(score, 20, 10, 20, 20);
+//		this.gc.fillText("SCORE: " + this.student, GameStage.WINDOW_WIDTH*0.05, GameStage.WINDOW_HEIGHT*0.05);
+		this.gc.drawImage(health, 200, 10, 20, 20);
+		this.gc.fillText("STRENGTH: " + student.getStrength(), GameStage.WINDOW_WIDTH*0.28, GameStage.WINDOW_HEIGHT*0.05);
+		this.gc.drawImage(gameTimer, 370, 10, 20, 20);
+		this.gc.fillText("TIME: " + this.time, GameStage.WINDOW_WIDTH*0.5, GameStage.WINDOW_HEIGHT*0.05);
+		if(this.finalBoss.size() == 1){
+			this.gc.fillText("BOSS STRENGTH: " + this.finalBoss.get(0).getTeacherHealth(), GameStage.WINDOW_WIDTH*0.6, GameStage.WINDOW_HEIGHT*0.05);
 		}
 	}
 	

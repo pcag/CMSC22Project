@@ -10,8 +10,8 @@ public class Exam extends Sprite {
 	public static final int MAX_EXAM_SPEED = 5;
 	public static final int EXAM_DAMAGE = 30;
 	public final static Image EXAM_IMAGE = new Image("images/exam.png", Exam.EXAM_WIDTH, Exam.EXAM_WIDTH, false, false);
-	public final static int EXAM_WIDTH = 50;
-	public final static int EXAM_SIZE = 50;
+	public final static int EXAM_WIDTH = 35;
+	public final static int EXAM_SIZE = 35;
 	private boolean alive;
 	// attribute that will determine if a fish will initially move to the right
 	private boolean moveRight;

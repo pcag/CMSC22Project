@@ -28,11 +28,6 @@ public class Main extends Application {
 	}
 	
 	public void start(Stage stage) {
-//		MainMenu menuStage = new MainMenu();
-//		menuStage.setStage(stage);
-//		GameStage theGameStage = new GameStage();
-//		theGameStage.setStage(stage);
-		//stage.show();
 		Menu mainMenu = new Menu();
 		mainMenu.loadTo(stage);
 		stage.show();

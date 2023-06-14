@@ -54,7 +54,7 @@ public class Result {
 		}
 
 		Button exitbtn = new Button("Exit Game");
-		exitbtn.setTranslateX(10);
+		exitbtn.setTranslateX(0);
 		exitbtn.setTranslateY(200);
 		this.addEventHandler(exitbtn);
 		exitbtn.setStyle("-fx-font: 14 Helvetica;"
