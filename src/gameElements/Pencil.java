@@ -16,10 +16,12 @@ public class Pencil extends Sprite {
 	}
 
 
-	//method that will move/change the x position of the bullet 
-	public void moveRight(boolean right){
-		/*	TODO: Change the x position of the bullet depending on the bullet speed. If the x position has reached the right boundary of the 
-		 * 		  screen, set the bullet's visibility to false.
+	// method that will move/change the x position of the bullet
+	public void moveRight(boolean right) {
+		/*
+		 * TODO: Change the x position of the bullet depending on the bullet speed. If
+		 * the x position has reached the right boundary of the screen, set the bullet's
+		 * visibility to false.
 		 */
 		if(right) {
 			this.x += PENCIL_SPEED;

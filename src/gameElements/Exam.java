@@ -36,18 +36,25 @@ public class Exam extends Sprite {
 		 * 	 						move the fish to the left by changing the x position of the fish depending on its speed.
 		 * 						else if it has reached the boundary, change the moveRight value / move to the right
 		 */
-		if (this.moveRight && this.getX() + EXAM_SIZE < GameStage.WINDOW_WIDTH)
-			this.x += this.speed;
-		else if (this.getX() + EXAM_SIZE >= GameStage.WINDOW_WIDTH) {
-			this.moveRight = false;
-			this.x -= this.speed;
-		}
-		else if (!this.moveRight && this.getX() > 0)
-			this.x += this.speed;
-		else if (this.getX() <= 0) {
-			this.moveRight = true;
-			this.x += this.speed;
-		}
+		  if (moveRight) {
+		        // Move the fish to the right if it hasn't reached the right boundary yet
+		        if (x + EXAM_SIZE < GameStage.WINDOW_WIDTH) {
+		            x += speed;
+		        } else {
+		            // Change direction and move to the left
+		            moveRight = false;
+		            x -= speed;
+		        }
+		    } else {
+		        // Move the fish to the left if it hasn't reached the left boundary yet
+		        if (x > 0) {
+		            x -= speed;
+		        } else {
+		            // Change direction and move to the right
+		            moveRight = true;
+		            x += speed;
+		        }
+		    }
 	}
 	
 	//getters
