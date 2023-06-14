@@ -16,7 +16,7 @@ public class About extends View{
 	@Override
 	protected Parent createRoot(){
 		VBox root = new VBox();
-		//root.setBackground(new Background(new BackgroundImage(BG_IMAGE, null, null, null, null)));
+//		root.setBackground(new Background(new BackgroundImage("/images/About.jpg", null, null, null, null)));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(16);
 
