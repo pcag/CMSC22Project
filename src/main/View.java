@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 public abstract class View {
 
 	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 800;
+	public static final int WINDOW_HEIGHT = 500;
 	//public static final Image BG_IMAGE = new Image("images/menu_bg.jpg");
 	public static final Color BG_COLOR = Color.MAGENTA;
 	public static final Color GEN_COLOR = Color.BLACK;
