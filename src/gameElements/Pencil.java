@@ -5,8 +5,7 @@ import game.GameStage;
 import game.Sprite;
 
 public class Pencil extends Sprite {
-	public final static Image PENCIL_IMAGE = new Image("images/pencil.png", Pencil.PENCIL_WIDTH, Pencil.PENCIL_WIDTH,
-			false, false);
+	public final static Image PENCIL_IMAGE = new Image("images/pencil.png", Pencil.PENCIL_WIDTH, Pencil.PENCIL_WIDTH, false, false);
 	private final static int PENCIL_SPEED = 20;
 	public final static int PENCIL_DAMAGE = 20;
 	public final static int PENCIL_WIDTH = 20;

@@ -26,6 +26,7 @@ public class Result {
 
 	public static final Image img2= new Image("/images/Exams Aced.jpg");
 	public static final Image img1= new Image("/images/Exams Failed.jpg");
+	//https://www.etsy.com/hk-en/listing/865569318/cute-full-twitch-package-8bit-pixel-art
 
 	Result(int gameOverNum, GameTimer gameTimer){
 		this.pane = new StackPane();
@@ -45,7 +46,7 @@ public class Result {
 		if (this.gameOverNum == 0){
 
 			// display
-			this.gc.drawImage(img1, 0, 0, GameStage.WINDOW_WIDTH,GameStage.WINDOW_HEIGHT); // losePage
+			this.gc.drawImage(img1, 0, 0, GameStage.WINDOW_WIDTH,GameStage.WINDOW_HEIGHT); 
 			this.gc.fillText("Score: " + gameTimer.getScore(), GameStage.WINDOW_WIDTH*.01,GameStage.WINDOW_HEIGHT*0.05);
 		}
 		else if (this.gameOverNum == 1){

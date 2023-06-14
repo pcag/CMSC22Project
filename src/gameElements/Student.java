@@ -78,7 +78,6 @@ public class Student extends Sprite {
 			return;
 		}
 		this.x += this.dx;
-//			tempy < GameTimer.PANEL_SPACE 
 		if (tempy <= 0 || tempy > (GameStage.WINDOW_HEIGHT - STUDENT_SIZE)) {
 			return;
 		}

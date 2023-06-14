@@ -19,7 +19,6 @@ public class Teacher extends Exam{
 	public final static int TEACHER_SIZE = 75;
 	public final static int PENCIL_MAX = 4;
 	public final static Image TEACHER_IMAGE = new Image("images/teacher.png",TEACHER_SIZE,TEACHER_SIZE,false,false);
-	//public final static Image EVIL_PACMAN_IMAGE2 = new Image("/resources/elements/evilsad.png",EVIL_PACMAN_SIZE,EVIL_PACMAN_SIZE,false,false);
 
 	public Teacher(int x, int y) {
 		super(x, y);
@@ -29,7 +28,7 @@ public class Teacher extends Exam{
 		this.moveUp = rd.nextBoolean();
 	}
 
-	//method so that Evil Pacman will move diagonally
+	//method so that Teacher will move diagonally
 	public void moveUp(){
 		if(!this.moveUp && this.getY() + TEACHER_SIZE < GameStage.WINDOW_HEIGHT)
 			this.y += this.getSpeed();
@@ -53,16 +52,6 @@ public class Teacher extends Exam{
 			this.pencils.add(p);
 		}
     }
-
-	//evil pacman image change if health is low
-//	public void render(GraphicsContext gc){
-//		if (getEvilPacmanHealth()>=1500){
-//		gc.drawImage(EVIL_PACMAN_IMAGE, this.x, this.y);
-//	}
-//		else{
-//			gc.drawImage(EVIL_PACMAN_IMAGE2, this.x, this.y);
-//		}
-//	}
 
 	//getters
 	public int getTeacherHealth(){
