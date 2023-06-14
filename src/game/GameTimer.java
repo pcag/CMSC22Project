@@ -34,6 +34,9 @@ public class GameTimer extends AnimationTimer{
 	private ArrayList<Teacher> finalBoss;
 	private Timer timer;
 	private int time;
+	private int activePowerUp = 0;
+	private Boolean invincible = false;
+	private boolean activatePowerTimer = false;
 	public static final Image gameTimer = new Image("images/timer.gif");
 	public static final Image score = new Image("images/score.gif");
 	public static final Image health = new Image("images/health.png");
@@ -273,9 +276,7 @@ public class GameTimer extends AnimationTimer{
 					e.setAlive(false);
 					p.setVisible(false);
 				}
-				if (e.x > GameStage.WINDOW_WIDTH) {
-					e.setVisible(false);
-				}
+
 				for(Teacher fb:this.finalBoss) {
 					if(fb.collidesWith(e)) {
 						fb.setTeacherHealth(fb.getTeacherHealth() - this.student.getStrength());
@@ -290,7 +291,7 @@ public class GameTimer extends AnimationTimer{
 				}
 			}
 	
-			if(e.collidesWith(this.student)) {
+			if(e.collidesWith(this.student) && !this.invincible) {
 				if(this.powerupClass == 2 & (this.time <= this.powerupTime + 3)){
 					this.examNum++;
 					e.setAlive(false);
@@ -315,19 +316,26 @@ public class GameTimer extends AnimationTimer{
 			if(p.collidesWith(this.student)) {
 				p.setVisible(false);
 				this.powerupClass = p.getPowerupClass();
-				this.powerupTime = this.time;
 				if(this.powerupClass == 1) {
 					this.student.setStrength(this.student.getStrength() + 50);
 					System.out.println("Health: " + this.student.getStrength());
 				}
 				else if(this.powerupClass == 2) {
 					System.out.println("INVISIBILITY ACTIVATED FOR 3 SECONDS");
+					this.invincible = true;
+					this.activePowerUp = 2;
+					this.activatePowerTimer  = true;
 				}
 				else {
 					System.out.println("ATTACK SPEED INCREASED FOR 5 SECONDS");
 				}
 			}
 		}
+	}
+	
+	private void removePowerUpEffect() {
+		this.invincible = false;
+		this.activePowerUp = 0;
 	}
 	
 	//method that will call for collision with final boss
@@ -386,9 +394,26 @@ public class GameTimer extends AnimationTimer{
 			public void actionPerformed(ActionEvent e) {
 				time++;
 				System.out.println(time);
-				if(time >= 5) {
+				
+				if (activatePowerTimer) {
+					powerupTime = time;
+					activatePowerTimer = false;
+				}
+				
+				if (activePowerUp != 0) {
+					switch (activePowerUp) {
+					case 2:
+						if (time - powerupTime >= 3) {
+							removePowerUpEffect();
+							System.out.println("REMOVED INVINCIBILITY");
+						}
+					}
+				}
+				
+				if(time % 5 == 0) {
 					spawnExams();
 				}
+				
 				spawnPowerups();
 				spawnFinalBoss();
 				winCondition();

@@ -1,4 +1,5 @@
 package gameElements;
+
 import java.util.Random;
 import javafx.scene.image.Image;
 import game.GameStage;
@@ -8,68 +9,67 @@ public class Exam extends Sprite {
 	Random rd = new Random();
 	public static final int MAX_EXAM_SPEED = 5;
 	public static final int EXAM_DAMAGE = 30;
-	public final static Image EXAM_IMAGE = new Image("images/exam.png",Exam.EXAM_WIDTH,Exam.EXAM_WIDTH,false,false);
-	public final static int EXAM_WIDTH=50;
+	public final static Image EXAM_IMAGE = new Image("images/exam.png", Exam.EXAM_WIDTH, Exam.EXAM_WIDTH, false, false);
+	public final static int EXAM_WIDTH = 50;
 	public final static int EXAM_SIZE = 50;
 	private boolean alive;
-	//attribute that will determine if a fish will initially move to the right
+	// attribute that will determine if a fish will initially move to the right
 	private boolean moveRight;
 	private int speed;
 
-	
-	public Exam(int x, int y){
-		super(x,y);
+	public Exam(int x, int y) {
+		super(x, y);
 		this.alive = true;
 		this.loadImage(Exam.EXAM_IMAGE);
 		/* TODO: Randomize speed of fish and moveRight's initial value. */
-		this.speed = rd.nextInt(4)+1;
+		this.speed = rd.nextInt(4) + 1;
 		this.moveRight = rd.nextBoolean();
 	}
-	
-	//method that changes the x position of the fish
-	public void move(){
+
+	// method that changes the x position of the fish
+	public void move() {
 		/*
-		 * TODO: 				If moveRight is true and if the fish hasn't reached the right boundary yet,
-		 *    						move the fish to the right by changing the x position of the fish depending on its speed
-		 *    					else if it has reached the boundary, change the moveRight value / move to the left 
-		 * 					 Else, if moveRight is false and if the fish hasn't reached the left boundary yet,
-		 * 	 						move the fish to the left by changing the x position of the fish depending on its speed.
-		 * 						else if it has reached the boundary, change the moveRight value / move to the right
+		 * TODO: If moveRight is true and if the fish hasn't reached the right boundary
+		 * yet, move the fish to the right by changing the x position of the fish
+		 * depending on its speed else if it has reached the boundary, change the
+		 * moveRight value / move to the left Else, if moveRight is false and if the
+		 * fish hasn't reached the left boundary yet, move the fish to the left by
+		 * changing the x position of the fish depending on its speed. else if it has
+		 * reached the boundary, change the moveRight value / move to the right
 		 */
-		  if (moveRight) {
-		        // Move the fish to the right if it hasn't reached the right boundary yet
-		        if (x + EXAM_SIZE < GameStage.WINDOW_WIDTH) {
-		            x += speed;
-		        } else {
-		            // Change direction and move to the left
-		            moveRight = false;
-		            x -= speed;
-		        }
-		    } else {
-		        // Move the fish to the left if it hasn't reached the left boundary yet
-		        if (x > 0) {
-		            x -= speed;
-		        } else {
-		            // Change direction and move to the right
-		            moveRight = true;
-		            x += speed;
-		        }
-		    }
+		if (moveRight) {
+			// Move the fish to the right if it hasn't reached the right boundary yet
+			if (x + EXAM_SIZE < GameStage.WINDOW_WIDTH) {
+				x += speed;
+			} else {
+				// Change direction and move to the left
+				moveRight = false;
+				x -= speed;
+			}
+		} else {
+			// Move the fish to the left if it hasn't reached the left boundary yet
+			if (x > 0) {
+				x -= speed;
+			} else {
+				// Change direction and move to the right
+				moveRight = true;
+				x += speed;
+			}
+		}
 	}
-	
-	//getters
+
+	// getters
 	public boolean isAlive() {
 		return this.alive;
 	}
-	
+
 	public int getSpeed() {
 		return this.speed;
 	}
-	
-	//setter
+
+	// setter
 	public void setAlive(boolean t) {
 		this.alive = t;
 	}
-	
-	
+
 }

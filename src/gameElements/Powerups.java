@@ -20,6 +20,7 @@ public class Powerups extends Sprite {
 		super(x, y);
 		this.spawnTime = time;
 		this.powerupClass = rd.nextInt(3) + 1;
+		
 		switch (this.powerupClass) {
 		case 1:
 			this.loadImage(HINT);
